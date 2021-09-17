@@ -3,103 +3,107 @@ import "./styles.css";
 import { useState } from "react";
 
 var moviesDB = {
-  SciFi: [
+  Action: [
     {
-      name: "Ready Player One",
+      name: "The Witcher 3: Wild Hunt",
       rating: "4.5/5",
       description:
-        "When the creator of a virtual reality called the OASIS dies, he makes a posthumous challenge to all OASIS users to find his Easter Egg, which will give the finder his fortune and control of his world."
+        "The Witcher: Wild Hunt is a story-driven open world RPG set in a visually stunning fantasy universe full of meaningful choices and impactful consequences. In The Witcher, you play as professional monster hunter Geralt of Rivia tasked with finding a child of prophecy in a vast open world rich with merchant cities, pirate islands, dangerous mountain passes, and forgotten caverns to explore."
     },
     {
-      name: "Back To The Future",
+      name: "Grand Theft Auto V",
+      rating: "5/5",
+      description:
+        "When a young street hustler, a retired bank robber and a terrifying psychopath find themselves entangled with some of the most frightening and deranged elements of the criminal underworld, the U.S. government and the entertainment industry, they must pull off a series of dangerous heists to survive in a ruthless city in which they can trust nobody, least of all each other."
+    },
+    {
+      name: "Batman: Arkham City",
+      rating: "4.8/5",
+      description:
+        "Batman: Arkham City builds upon the intense, atmospheric foundation of Batman: Arkham Asylum, sending players flying through the expansive Arkham City - five times larger than the game world in Batman: Arkham Asylum."
+    },
+    {
+      name: "Sekiro: Shadows Die Twice",
       rating: "4.5/5",
       description:
-        "Marty McFly, a 17-year-old high school student, is accidentally sent thirty years into the past in a time-traveling DeLorean invented by his close friend, the eccentric scientist Doc Brown."
-    },
-    {
-      name: "Back To The Future 2",
-      rating: "4/5",
-      description:
-        "After visiting 2015, Marty McFly must repeat his visit to 1955 to prevent disastrous changes to 1985...without interfering with his first trip."
-    },
-    {
-      name: "X-men Saga",
-      rating: "4.5/5",
-      description:
-        "In the 1960s, superpowered humans Charles Xavier and Erik Lensherr work together to find others like them, but Erik's vengeful pursuit of an ambitious mutant who ruined his life causes a schism to divide them."
+        "Game of the Year - The Game Awards 2019 Best Action Game of 2019 - IGN Carve your own clever path to vengeance in the award winning adventure from developer FromSoftware, creators of Bloodborne and the Dark Souls series. Take Revenge. Restore Your Honor. Kill Ingeniously."
     }
   ],
-  War: [
+  FPS: [
     {
-      name: "Fury",
+      name: "Apex Legends",
       rating: "4.5/5",
       description:
-        "A grizzled tank commander makes tough decisions as he and his crew fight their way across Germany in April, 1945."
+        "Apex Legends is the award-winning, free-to-play Hero shooter from Respawn Entertainment. Master an ever-growing roster of legendary characters with powerful abilities and experience strategic squad play and innovative gameplay in the next evolution of Hero Shooter and Battle Royale."
     },
     {
-      name: "American Sniper",
-      rating: "4/5",
+      name: "DOOM Eternal",
+      rating: "4.9/5",
       description:
-        "Navy S.E.A.L. sniper Chris Kyle's pinpoint accuracy saves countless lives on the battlefield and turns him into a legend. Back home with his family after four tours of duty, however, Chris finds that it is the war he can't leave behind."
+        "Hell’s armies have invaded Earth. Become the Slayer in an epic single-player campaign to conquer demons across dimensions and stop the final destruction of humanity. The only thing they fear... is you."
     },
     {
-      name: "GreyHound",
+      name: "Counter-Strike: Global Offensive",
       rating: "4/5",
       description:
-        "Several months after the U.S. entry into World War II, an inexperienced U.S. Navy commander must lead an Allied convoy being stalked by a German submarine wolf pack."
+        "Counter-Strike: Global Offensive (CS: GO) expands upon the team-based action gameplay that it pioneered when it was launched 19 years ago. CS: GO features new maps, characters, weapons, and game modes, and delivers updated versions of the classic CS content."
     }
   ],
-  Fiction: [
+  Horror: [
     {
-      name: "Twilight Saga",
+      name: "Amnesia: The Dark Descent",
+      rating: "4.3/5",
+      description:
+        "Amnesia: The Dark Descent, a first person survival horror. A game about immersion, discovery and living through a nightmare. An experience that will chill you to the core."
+    },
+    {
+      name: "The Evil Within",
+      rating: "4/5",
+      description:
+        " The Evil Within embodies the meaning of pure survival horror. Highly-crafted environments, horrifying anxiety, and an intricate story are combined to create an immersive world that will bring you to the height of tension. With limited resources at your disposal, you’ll fight for survival and experience profound fear in this perfect blend of horror and action."
+    },
+    {
+      name: "Resident Evil 7: Biohazard",
       rating: "4.5/5",
       description:
-        "When Bella Swan moves to a small town in the Pacific Northwest, she falls in love with Edward Cullen, a mysterious classmate who reveals himself to be a 108-year-old vampire."
+        "Resident Evil 7 biohazard is the next major entry in the renowned Resident Evil series and sets a new course for the franchise as it leverages its roots and opens the door to a truly terrifying horror experience. A dramatic new shift for the series to first person view in a photorealistic style powered by Capcom’s new RE Engine, Resident Evil 7 delivers an unprecedented level of immersion that brings the thrilling horror up close and personal."
     },
     {
-      name: "Deadpool",
-      rating: "3.5/5",
+      name: "Soma",
+      rating: "4.7/5",
       description:
-        "A wisecracking mercenary gets experimented on and becomes immortal but ugly, and sets out to track down the man who ruined his looks."
-    },
-    {
-      name: "Harry Potter Series",
-      rating: "4/5",
-      description:
-        "An orphaned boy enrolls in a school of wizardry, where he learns the truth about himself, his family and the terrible evil that haunts the magical world."
-    },
-    {
-      name: "Pirates of The Caribbean Series",
-      rating: "4/5",
-      description:
-        "Blacksmith Will Turner teams up with eccentric pirate Captain Jack Sparrow to save his love, the governor's daughter, from Jack's former pirate allies, who are now undead."
+        "From the creators of Amnesia: The Dark Descent comes SOMA, a sci-fi horror game set below the waves of the Atlantic ocean. Struggle to survive a hostile world that will make you question your very existence."
     }
   ]
 };
 
 export default function App() {
-  const [selectedGenre, setSelectedGenre] = useState("Fiction");
+  const [selectedGenre, setSelectedGenre] = useState("Horror");
 
   function genreClickHandler(genre) {
     setSelectedGenre(genre);
   }
   return (
     <div className="App">
-      <h1 style={{ fontFamily: "sans", fontSize: "3rem", color: "#0080ff" }}>
-        Movie Recommendation
+      <h1 style={{ fontFamily: "sans", fontSize: "3rem", color: "#9b2335" }}>
+        Game's Recommendation
       </h1>
-      <p>Here are some of the movies that I have watched !</p>
-      <p> Select a Genre to get Started!</p>
+      <p style={{ color: "#34D399" }}>
+        Here are some of the Games that I have Played !
+      </p>
+      <p style={{ color: "#34D399" }}> Select a Genre to get Started!</p>
       <div>
         {Object.keys(moviesDB).map((genre) => (
           <button
             style={{
               fontSize: "2rem",
-              color: "#FCD34D",
-              backgroundColor: "#5B21B6",
-              borderRadius: "10%",
+              color: "red",
+              backgroundColor: "black",
+              border: "1px solid red",
+              borderRadius: "20px",
               padding: "1rem",
-              marginInlineEnd: "3rem"
+              marginInlineEnd: "3rem",
+              cursor: "pointer"
             }}
             onClick={() => genreClickHandler(genre)}
           >
@@ -107,7 +111,6 @@ export default function App() {
           </button>
         ))}
       </div>
-      <hr />
 
       <div>
         <ul style={{ listStyleType: "none" }}>
@@ -116,7 +119,8 @@ export default function App() {
               <div
                 style={{
                   padding: "1rem",
-                  backgroundColor: "#4B5563",
+                  color: "red",
+                  backgroundColor: "black",
                   fontSize: "2rem",
                   fontFamily: "monospace",
                   fontWeight: "bolder"
@@ -127,7 +131,7 @@ export default function App() {
               <div
                 style={{
                   padding: "1rem",
-                  backgroundColor: "#4B5563",
+                  backgroundColor: "#374151",
                   fontFamily: "monospace",
                   fontSize: "1.5rem"
                 }}
@@ -136,14 +140,15 @@ export default function App() {
               </div>
               <div
                 style={{
+                  color: "red",
                   padding: "1rem",
-                  backgroundColor: "#6B7280",
+                  fontSize: "large",
+                  backgroundColor: "black",
                   fontFamily: "monospace"
                 }}
               >
                 {movie.rating}
               </div>
-              <hr />
             </li>
           ))}
         </ul>
