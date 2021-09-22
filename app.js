@@ -2,7 +2,7 @@ import React from "react";
 import "./styles.css";
 import { useState } from "react";
 
-var moviesDB = {
+var gamesDB = {
   Action: [
     {
       name: "The Witcher 3: Wild Hunt",
@@ -86,14 +86,14 @@ export default function App() {
   return (
     <div className="App">
       <h1 style={{ fontFamily: "sans", fontSize: "3rem", color: "#9b2335" }}>
-        Game's Recommendation
+        Game Recommendation
       </h1>
       <p style={{ color: "#34D399" }}>
         Here are some of the Games that I have Played !
       </p>
       <p style={{ color: "#34D399" }}> Select a Genre to get Started!</p>
       <div>
-        {Object.keys(moviesDB).map((genre) => (
+        {Object.keys(gamesDB).map((genre) => (
           <button
             style={{
               fontSize: "2rem",
@@ -114,8 +114,8 @@ export default function App() {
 
       <div>
         <ul style={{ listStyleType: "none" }}>
-          {moviesDB[selectedGenre].map((movie) => (
-            <li key={movie.name}>
+          {gamesDB[selectedGenre].map((game) => (
+            <li key={game.name}>
               <div
                 style={{
                   padding: "1rem",
@@ -126,7 +126,7 @@ export default function App() {
                   fontWeight: "bolder"
                 }}
               >
-                {movie.name}
+                {game.name}
               </div>
               <div
                 style={{
@@ -136,7 +136,7 @@ export default function App() {
                   fontSize: "1.5rem"
                 }}
               >
-                {movie.description}
+                {game.description}
               </div>
               <div
                 style={{
@@ -147,7 +147,7 @@ export default function App() {
                   fontFamily: "monospace"
                 }}
               >
-                {movie.rating}
+                {game.rating}
               </div>
             </li>
           ))}
